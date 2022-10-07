@@ -3,25 +3,30 @@ import React from 'react'
 const Counter = () => {
     const [count, setCount] = React.useState(0)
 
-    // React.useEffect(() => {
-    //     setTimeout(() => {
-    //         setCount(() => count + 1)
-    //     }, 1000)
-    // }, [count])
+    const countRef = React.useRef(null)
 
-    const handleStart = () => {
-        // alert("click me")
-        setTimeout(() => {
-             setCount(() => count + 1)
-        }, 1000)  
+    const startCount = () => {
+      countRef.current = setInterval(() => {
+        setCount((count) => count + 1)
+      }, 1000)
+    }
+
+    const pauseCount = () => {
+      clearInterval(countRef.current)
+      countRef.current = null
+    }
+
+    const resetCount = () => {
+      pauseCount()
+      setCount(0)
     }
 
   return (
     <div>
         <h1>Counter - {count}</h1>
-        <button onClick={()=> handleStart(count)}>Start</button>
-        <button>Pause</button>
-        <button>Reset</button>
+        <button onClick={startCount}>Start</button>
+        <button onClick={pauseCount}>Pause</button>
+        <button onClick={resetCount}>Reset</button>
     </div>
   )
 }
