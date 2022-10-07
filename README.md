@@ -1,5 +1,5 @@
-# Basic_Simple_Counter
+ Basic_Simple_Counter
 
-# Simple Counter Application user should start, stop and reset the count
+ Simple Counter Application user should start, stop and reset the count
 
-# visti to netlify Link - https://darling-profiterole-eb8d17.netlify.app/
+ visti to netlify Link - https://darling-profiterole-eb8d17.netlify.app/
